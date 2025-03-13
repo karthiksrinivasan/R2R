@@ -18,6 +18,21 @@ logger = logging.getLogger(__name__)
 T = TypeVar("T")
 
 
+"""
+# OSS CONTRIB:
+This file is going to have to change a lot.
+
+Potential actions:
+    - Add in new language fields to the prompts table in create_tables
+    - Add in new language fields to the prompts table in add_prompt, update_prompt, delete_prompt, get_all_prompts, etc.
+    - Add in new language fields to the prompts table in _get_prompt_impl, _update_prompt_impl, _get_template_info, etc.
+
+Elsewhere in the codebase, we'll need to:
+    - Update any call that uses …prompts_handler.get_cached_prompt(…) to include the new language fields
+    - Update any call that uses the get_message_payload(…) method to include the new language fields
+"""
+
+
 @dataclass
 class CacheEntry(Generic[T]):
     """Represents a cached item with metadata."""
